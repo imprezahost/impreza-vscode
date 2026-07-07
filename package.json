@@ -1,0 +1,69 @@
+{
+  "name": "impreza-host",
+  "displayName": "Impreza Host — deploy from your AI",
+  "description": "Deploy apps and manage servers, domains/DNS, VPS & crypto balance on Impreza Host (privacy-first, no-KYC, offshore hosting paid in Bitcoin/Monero) from GitHub Copilot or Claude via MCP. The hosting provider — not the Impreza WordPress theme.",
+  "version": "0.1.0",
+  "publisher": "imprezahost",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": ["AI", "Other"],
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "impreza",
+    "hosting",
+    "no-kyc",
+    "offshore",
+    "bitcoin",
+    "monero",
+    "vps",
+    "deploy",
+    "copilot",
+    "claude"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imprezahost/impreza-vscode.git"
+  },
+  "homepage": "https://docs.imprezahost.com/tutorials/ai-mcp-integration.html",
+  "bugs": {
+    "url": "https://github.com/imprezahost/impreza-vscode/issues"
+  },
+  "galleryBanner": {
+    "color": "#0d0d1a",
+    "theme": "dark"
+  },
+  "activationEvents": ["onLanguageModel"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "imprezaHostProvider",
+        "label": "Impreza Host"
+      }
+    ],
+    "commands": [
+      {
+        "command": "impreza.setApiKey",
+        "title": "Impreza: Set API key + secret (local server)"
+      },
+      {
+        "command": "impreza.signOut",
+        "title": "Impreza: Clear stored API credentials"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.101.0",
+    "typescript": "^5.7.0"
+  }
+}
